@@ -1,5 +1,5 @@
 {
-  "name": "justinweb",
+  "name": "mainautzmann",
   "scripts": {
     "postdeploy": "grunt all"
   },
@@ -11,13 +11,7 @@
       "required": true
     }
   },
-  "addons": [
-    "mongolab"
-  ],
   "buildpacks": [
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-ruby"
-    },
     {
       "url": "https://github.com/heroku/heroku-buildpack-nodejs"
     }
