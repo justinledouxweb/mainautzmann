@@ -1,0 +1,6 @@
+.footer {
+  text-align: center;
+  color: map-get($theme, 'white');
+  background-color: map-get($theme, 'darkest-purple');
+  padding: 50px;
+}

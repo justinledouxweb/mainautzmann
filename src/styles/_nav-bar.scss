@@ -1,0 +1,137 @@
+.nav-bar {
+  @extend .clearfix;
+  position: absolute;
+  display: block;
+  top: 563px;
+  left: 0;
+  width: 100%;
+  background-color: map-get($theme, 'dark-purple');
+  padding: 20px 0;
+  z-index: 10;
+
+  &.nav-bar--is-fixed {
+    position: fixed;
+    top: 0;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    text-align: center;
+    top: 297px;
+  }
+
+  @media (max-width: 440px) {
+    top: 281px;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    top: 363px;
+  }
+
+  @media (min-width: $screen-md-min) {
+    top: 463px;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    top: 563px;
+  }
+
+  &__menu {
+    display: none;
+    color: white;
+    border: 1px solid map-get($theme, 'white');
+    border-radius: 4px;
+    padding: 5px 20px;
+    margin: -5px 0 -4px 0;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: map-get($theme, 'white');
+      text-decoration: none;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      display: inline-block;
+      text-align: center;
+      top: 297px;
+    }
+  }
+
+  &__item {
+    display: block;
+    color: white;
+    font-size: $FONT_SIZE_20;
+    font-weight: $FONT_LIGHT;
+    text-decoration: none;
+    margin-right: 50px;
+    opacity: .5;
+    float: left;
+    transition: opacity .2s ease-in-out;
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+      color: map-get($theme, 'white');
+    }
+
+    &:active,
+    &:focus {
+      opacity: .5;
+    }
+
+    &:hover {
+      opacity: .8;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      display: none;
+    }
+
+    &.nav-bar__item--is-active {
+      opacity: 1;
+    }
+  }
+
+  &__side-container {
+    position: fixed;
+    display: block;
+    width: 250px;
+    height: 100%;
+    top: 0;
+    left: -250px;
+    z-index: 999;
+  }
+
+  &.nav-bar--side {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    padding: 15px;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+
+    .nav-bar__item {
+      display: block;
+      text-align: left;
+      margin-bottom: 20px;
+      opacity: 1;
+      float: none;
+
+      @media (max-width: $screen-xs-max) {
+        display: block;
+      }
+    }
+  }
+
+  &.nav-bar--is-open {
+    transform: translateX(100%);
+  }
+}

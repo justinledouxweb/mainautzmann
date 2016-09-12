@@ -1,0 +1,12 @@
+/node_modules/
+.sass-cache
+.env
+.DS_Store
+
+npm-debug.log
+
+public/sass/build
+public/js
+public/js-dev/build
+public/css
+public/uploads/*

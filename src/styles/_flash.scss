@@ -1,0 +1,20 @@
+.flash {
+  position: relative;
+  display: none;
+  width: 100%;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+
+  &.flash--error {
+    display: block;
+    color: map-get($theme, 'dark-red');
+    background-color: map-get($theme, 'red');
+  }
+
+  &.flash--success {
+    display: block;
+    color: map-get($theme, 'dark-green');
+    background-color: map-get($theme, 'green');
+  }
+}

@@ -1,0 +1,17 @@
+.contact {
+  @extend .clearfix;
+
+  &__message {
+    height: 245px;
+  }
+
+  &__btn {
+    text-align: right;
+  }
+
+  &__send {
+    background-color: map-get($theme, 'purple');
+    color: map-get($theme, 'white');
+    padding: 10px 20px;
+  }
+}

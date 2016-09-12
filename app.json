@@ -1,0 +1,25 @@
+{
+  "name": "justinweb",
+  "scripts": {
+    "postdeploy": "grunt all"
+  },
+  "env": {
+    "COOKIE_KEY": {
+      "required": true
+    },
+    "SESSION_KEY": {
+      "required": true
+    }
+  },
+  "addons": [
+    "mongolab"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-ruby"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ]
+}

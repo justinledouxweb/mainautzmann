@@ -1,0 +1,67 @@
+.hero {
+  position: relative;
+  display: block;
+  margin-bottom: 68px;
+
+  &__image {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('/images/hero.jpg') no-repeat center;
+    background-size: cover;
+    z-index: 1;
+
+    @media (max-width: $screen-xs-max) {
+      background: linear-gradient(to top, rgba(0, 0, 0, .4) 0%, rgba(0, 0, 0, .4) 100%), url('/images/hero.jpg') no-repeat center;
+      background-size: cover;
+    }
+  }
+
+  &__content {
+    position: relative;
+    color: map-get($theme, 'white');
+    text-align: center;
+    padding: 150px 0;
+    z-index: 2;
+
+    @media (max-width: 440px) {
+      width: 100%;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      width: 90%;
+      padding: 80px 0;
+      margin: 0 auto;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      padding: 100px 0;
+    }
+
+    @media (min-width: $screen-md-min) {
+      padding: 150px 0;
+    }
+
+    @media (min-width: $screen-lg-min) {
+      padding: 200px 0;
+    }
+  }
+
+  &__title {
+    text-shadow: 0 0 3px rgba(0, 0, 0, .5);
+  }
+
+  &__quote {
+    line-height: 2;
+    text-shadow: 0 0 3px rgba(0, 0, 0, .5);
+
+    @media (max-width: 440px) {
+      width: 270px;
+      font-size: $FONT_SIZE_14;
+      margin: 0 auto;
+    }
+  }
+}

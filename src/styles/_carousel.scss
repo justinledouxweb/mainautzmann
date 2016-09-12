@@ -1,0 +1,119 @@
+.carousel {
+  width: 100%;
+
+  &__mask {
+    @extend .container;
+    position: relative;
+
+    @media (max-width: $screen-xs-max) {
+      width: 100%;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    display: block;
+    width: 44px;
+    height: 44px;
+    text-indent: -9999px;
+    bottom: 15px;
+    background-color: map-get($theme, 'white');
+    border-radius: 50%;
+    border: 2px solid map-get($theme, 'blue');
+    overflow: hidden;
+    opacity: .5;
+    z-index: 999;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.carousel__button--next,
+    &.carousel__button--prev {
+      &:after {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 12px;
+        height: 27px;
+        top: 50%;
+        left: 50%;
+        background: url('/images/sprite.svg') no-repeat 0 0;
+      }
+    }
+
+    &.carousel__button--next {
+      right: 30px;
+
+      &:after {
+        background-position: 0 0;
+        transform: translateX(-45%) translateY(-50%);
+      }
+    }
+
+    &.carousel__button--prev {
+      left: 30px;
+
+      &:after {
+        background-position: -14px 0;
+        transform: translateX(-65%) translateY(-50%);
+      }
+    }
+  }
+
+  &__drawer {
+    position: relative;
+    width: 10000px;
+    overflow: hidden;
+    transform: translateX(0);
+    transition: transform .5s ease-in-out;
+  }
+
+  &__photo {
+    margin-right: 15px;
+    opacity: .3;
+    float: left;
+    transition: opacity .5s ease-in-out;
+
+    &.carousel__photo--is-visible {
+      opacity: 1;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      width: calc(100vw - 30px);
+    }
+
+    @media (min-width: $screen-sm-min) {
+      width: calc(750px - 30px);
+    }
+
+    @media (min-width: $screen-md-min) {
+      width: calc(970px - 30px);
+    }
+
+    @media (min-width: $screen-lg-min) {
+      width: calc(1170px - 30px);
+    }
+  }
+
+  &__position {
+    position: relative;
+    display: block;
+    text-align: center;
+
+    > li {
+      position: relative;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border: 1px solid map-get($theme, 'gray');
+      border-radius: 50%;
+
+      &.is-active {
+        border-color: map-get($theme, 'blue');
+        background-color: map-get($theme, 'blue');
+      }
+    }
+  }
+}

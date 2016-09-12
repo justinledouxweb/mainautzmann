@@ -1,0 +1,35 @@
+$BASE_FONT_SIZE: 18;
+
+$FONT_SIZE_12: 12 / $BASE_FONT_SIZE * 1em;
+$FONT_SIZE_14: 14 / $BASE_FONT_SIZE * 1em;
+$FONT_SIZE_16: 16 / $BASE_FONT_SIZE * 1em;
+$FONT_SIZE_18: 18 / $BASE_FONT_SIZE * 1em;
+$FONT_SIZE_20: 20 / $BASE_FONT_SIZE * 1em;
+$FONT_SIZE_22: 22 / $BASE_FONT_SIZE * 1em;
+$FONT_SIZE_24: 24 / $BASE_FONT_SIZE * 1em;
+$FONT_SIZE_26: 26 / $BASE_FONT_SIZE * 1em;
+$FONT_SIZE_36: 36 / $BASE_FONT_SIZE * 1em;
+$FONT_SIZE_46: 46 / $BASE_FONT_SIZE * 1em;
+$FONT_SIZE_64: 64 / $BASE_FONT_SIZE * 1em;
+$FONT_SIZE_82: 82 / $BASE_FONT_SIZE * 1em;
+
+$FONT_LIGHT: 300;
+$FONT_REGULAR: 400;
+$FONT_MEDIUM: 600;
+$FONT_BOLD: 700;
+
+$theme: (
+  'white': #fff,
+  'dark-purple': #36395B,
+  'blue': #439CC5,
+  'purple': #503F7B,
+  'teal': #4197AD,
+  'darkest-purple': #1A1C2D,
+  'light-gray': #F7F7F7,
+  'sprite-@2x': 367px 40px,
+  'red': #EF7D7D,
+  'dark-red': #8E1B1B,
+  'green': #ACE5AC,
+  'dark-green': #177A17,
+  'gray': lightgray,
+);

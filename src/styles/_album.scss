@@ -1,0 +1,68 @@
+.album {
+  @extend .clearfix;
+
+  &__cover {
+    display: block;
+    width: 250px;
+    height: 250px;
+    margin-right: 20px;
+    float: left;
+
+    @media (max-width: $screen-xs-max) {
+      margin: 0 auto 20px auto;
+      float: none;
+    }
+  }
+
+  &__title,
+  &__description {
+    margin-bottom: 20px;
+  }
+
+  &__links {
+    @extend .clearfix;
+
+    > a {
+      margin-right: 20px;
+      float: left;
+
+      @media (max-width: 450px) {
+        display: block;
+        margin-bottom: 20px;
+        float: none;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__itunes,
+  &__google-play,
+  &__amazon {
+    text-indent: -9999px;
+    width: 110px;
+    height: 40px;
+    background: url('/images/sprite.png') no-repeat 0 0;
+    overflow: hidden;
+
+    @media
+      only screen and (-webkit-min-device-pixel-ratio: 2),
+      only screen and (   min--moz-device-pixel-ratio: 2),
+      only screen and (     -o-min-device-pixel-ratio: 2/1) { 
+        background: url('/images/sprite@2x.png') no-repeat 0 0;
+        background-size: map-get($theme, 'sprite-@2x');
+      }
+  }
+
+  &__google-play {
+    width: 135px;
+    background-position: -112px 0;
+  }
+
+  &__amazon {
+    width: 119px;
+    background-position: -248px 0;
+  }
+}
