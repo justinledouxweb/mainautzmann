@@ -50,6 +50,16 @@ gulp.task('dev', (cb) => {
   ], 'watch', callback);
 });
 
+gulp.task('all', (cb) => {
+  const callback = cb || function () {};
+
+  runSequence([
+    'script',
+    'style',
+    'images',
+  ], callback);
+});
+
 gulp.task('images', () => gulp
   .src('src/images/**/*')
   .pipe(changed('public/images')) // Ignore unchanged files
