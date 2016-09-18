@@ -34,6 +34,12 @@ gulp
   // .pipe(uglify())
   .pipe(gulp.dest('public/js')));
 
+// gulp
+//   .task('libs', () => {
+//     gulp.src('src/libs/**/*')
+//       .pipe(gulp.dest('public/libs'));
+//   });
+
 gulp.task('style', () => gulp
   .src('src/styles/main.scss')
     .pipe(sass().on('error', errorHandler))
@@ -45,6 +51,7 @@ gulp.task('dev', (cb) => {
 
   runSequence([
     'script',
+    // 'libs',
     'style',
     'images',
   ], 'watch', callback);
@@ -55,6 +62,7 @@ gulp.task('all', (cb) => {
 
   runSequence([
     'script',
+    // 'libs',
     'style',
     'images',
   ], callback);

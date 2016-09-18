@@ -23,7 +23,7 @@ function CarouselDirective($window) {
       nextBtn.on('click', moveDrawerNext);
       prevBtn.on('click', moveDrawerPrev);
 
-      function moveDrawer(dir, pos = null) {
+      function moveDrawer(dir, pos = undefined) {
         if (dir && (dir === 'prev' && position === 0)
           || (dir === 'next' && position === (photos.length - 1))) {
           return;
@@ -52,7 +52,7 @@ function CarouselDirective($window) {
       }
 
       function changePosition(pos) {
-        moveDrawer(null, pos);
+        moveDrawer(undefined, pos);
       }
     },
   };
