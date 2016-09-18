@@ -52,7 +52,7 @@ app.use((req, res, next) => {
 });
 app.use(compression());
 app.use(express.static(`${__dirname}/public/`, config.staticResourceCache));
-app.use(favicon(`${__dirname}/public/favicon.ico`));
+// app.use(favicon(`${__dirname}/public/favicon.ico`));
 
 app.use((req, res, next) => {
   res.locals.isProduction = process.env.NODE_ENV === 'production';
