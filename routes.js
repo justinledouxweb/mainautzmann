@@ -4,12 +4,32 @@ const handlebars = require('express-handlebars');
 const handlebarsConfig = require('./handlebars-config.js');
 const nodemailer = require('nodemailer');
 const fs = require('fs');
+const i18n = require('i18n');
 
 module.exports = app => {
   app.get('/', (req, res) => {
+    console.log(res.cookie('i18n'));
+    console.log(i18n.getLocale() === 'fr' ? 'en' : 'fr');
+
     res.render('home', {
       layout: 'main.handlebars',
+      language: {
+        link: i18n.getLocale() === 'fr' ? 'en' : 'fr',
+        label: i18n.getLocale() === 'fr' ? 'Eng' : 'Fr',
+      },
     });
+  });
+
+  app.get('/en', (req, res) => {
+    i18n.setLocale('en');
+    res.cookie('i18n', 'en', { maxAge: 900000, httpOnly: true });
+    res.redirect('back');
+  });
+
+  app.get('/fr', (req, res) => {
+    i18n.setLocale('fr');
+    res.cookie('i18n', 'fr', { maxAge: 900000, httpOnly: true });
+    res.redirect('back');
   });
 
   app.post('/contact', (req, res) => {

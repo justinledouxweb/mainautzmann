@@ -5,19 +5,21 @@ const ENV = process.env.NODE_ENV;
 const express = require('express');
 const app = express();
 const server = require('./server.js');
+const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const config = require('./config.js')[ENV];
-const favicon = require('serve-favicon');
 const formidable = require('formidable');
 const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
 const handlebarsConfig = require('./handlebars-config.js');
-// const i18n = require('i18n');
+const i18n = require('i18n');
 
-// i18n.configure({
-//   locales: ['en', 'fr'],
-//   cookie: 'i18n',
-// });
+i18n.configure({
+  locales: ['en', 'fr'],
+  cookie: 'i18n',
+  directory: `${__dirname}/locales`,
+  // updateFiles: false,
+});
 
 const hdb = handlebars.create(handlebarsConfig.handlebars);
 app.engine('handlebars', hdb.engine);
@@ -29,9 +31,10 @@ app.set('view options', {
 // App setup environment port
 app.set('port', process.env.PORT);
 app.enable('trust proxy');
-// app.use(i18n.init);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser(process.env.COOKIE_KEY));
+app.use(i18n.init);
 app.use((req, res, next) => {
   const regex = new RegExp('multipart/form-data');
 
@@ -52,7 +55,6 @@ app.use((req, res, next) => {
 });
 app.use(compression());
 app.use(express.static(`${__dirname}/public/`, config.staticResourceCache));
-// app.use(favicon(`${__dirname}/public/favicon.ico`));
 
 app.use((req, res, next) => {
   res.locals.isProduction = process.env.NODE_ENV === 'production';

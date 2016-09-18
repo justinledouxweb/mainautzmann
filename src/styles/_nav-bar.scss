@@ -95,6 +95,11 @@
     &.nav-bar__item--is-active {
       opacity: 1;
     }
+
+    &.nav-bar__item--language {
+      opacity: 1;
+      float: right;
+    }
   }
 
   &__side-container {
@@ -127,6 +132,11 @@
 
       @media (max-width: $screen-xs-max) {
         display: block;
+      }
+
+      &.nav-bar__item--language {
+        border-top: 1px solid rgba(255, 255, 255, .5);
+        padding-top: 20px;
       }
     }
   }

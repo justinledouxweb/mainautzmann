@@ -5,9 +5,7 @@
     <div class="row">
       <div class="col-sm-6 col-sm-push-6 hero__content">
         <h1 class="hero__title">Maïna Utzmann</h1>
-        <p class="hero__quote">
-          I love to sing, to perform, and to elevate people’s senses into a state of dreaming.
-        </p>
+        <p class="hero__quote">{{ __ "hero" }}</p>
       </div>
     </div>
   </div>
@@ -16,12 +14,49 @@
 <div nav-bar>
   <nav class="nav-bar" id="nav-bar">
     <div class="container">
-      <a href="#" class="nav-bar__menu" id="menu" ng-click="$ctrl.toggleSideMenu($event)">Menu</a>
-      <a href="#biography" class="nav-bar__item nav-bar__item--is-active">Biography</a>
-      <a href="#photos" class="nav-bar__item">Photos</a>
-      <a href="#videos" class="nav-bar__item">Videos</a>
-      <a href="#music" class="nav-bar__item">Music</a>
-      <a href="#contact" class="nav-bar__item">Contact</a>
+      <a
+        href="#"
+        class="nav-bar__menu"
+        id="menu"
+        ng-click="$ctrl.toggleSideMenu($event)">
+        Menu
+      </a>
+
+      <a
+        href="#{{ __ 'biography' }}"
+        class="nav-bar__item nav-bar__item--is-active">
+        {{ __ 'Biography' }}
+      </a>
+
+      <a
+        href="#{{ __ 'photos' }}"
+        class="nav-bar__item">
+        {{ __ 'Photos' }}
+      </a>
+
+      <a
+        href="#{{ __ 'videos' }}"
+        class="nav-bar__item">
+        {{ __ 'Videos' }}
+      </a>
+
+      <a
+        href="#{{ __ 'music' }}"
+        class="nav-bar__item">
+        {{ __ 'Music' }}
+      </a>
+
+      <a
+        href="#{{ __ 'contact' }}"
+        class="nav-bar__item">
+        {{ __ 'Contact' }}
+      </a>
+
+      <a
+        href="/{{ language.link }}"
+        class="nav-bar__item nav-bar__item--language">
+        {{ language.label }}
+      </a>
     </div>
   </nav>
 
@@ -32,11 +67,41 @@
         'nav-bar--is-open': $ctrl.sideMenuIsOpen
       }"
       ng-click="$ctrl.toggleSideMenu()">
-      <a href="#biography" class="nav-bar__item nav-bar__item--is-active">Biography</a>
-      <a href="#photos" class="nav-bar__item">Photos</a>
-      <a href="#videos" class="nav-bar__item">Videos</a>
-      <a href="#music" class="nav-bar__item">Music</a>
-      <a href="#contact" class="nav-bar__item">Contact</a>
+      <a
+        href="#{{ __ 'biography' }}"
+        class="nav-bar__item nav-bar__item--is-active">
+        {{ __ 'Biography' }}
+      </a>
+
+      <a
+        href="#{{ __ 'photos' }}"
+        class="nav-bar__item">
+        {{ __ 'Photos' }}
+      </a>
+
+      <a
+        href="#{{ __ 'videos' }}"
+        class="nav-bar__item">
+        {{ __ 'Videos' }}
+      </a>
+
+      <a
+        href="#{{ __ 'music' }}"
+        class="nav-bar__item">
+        {{ __ 'Music' }}
+      </a>
+
+      <a
+        href="#{{ __ 'contact' }}"
+        class="nav-bar__item">
+        {{ __ 'Contact' }}
+      </a>
+
+      <a
+        href="/{{ language.link }}"
+        class="nav-bar__item nav-bar__item--language">
+        {{ language.label }}
+      </a>
     </nav>
   </div>
 
@@ -49,80 +114,129 @@
   </div>
 </div>
 
-<section class="section section__blue section__pattern" id="biography">
+<section class="section section__blue section__pattern" id="{{ __ 'biography' }}">
   <div class="container">
     <div class="row">
       <div class="col-sm-8 col-sm-push-2">
-        <h2>Biography</h2>
-
-        <p>
-          Maïna undertakes music studies under the wings of famous Soprano Natalie Choquette. In ’98 she leaves with her on tour in Holland, Germany, and Belgium.<br>
-          <br>
-          In 1999, Maïna made her music debut in the film industry, recording the theme song of the TV series “Diva”, composed by Guy St-Onge.<br>
-          <br>
-          Maïna’s talent led her to perform with great artists and musicians such as I Musici of Montreal, Corneliu Montano, Meggie Lagacé, Ima, Marie-Ève Janvier, Jean-François Breau, Kim Richardson, Guy St-Onge, Eric Rock, as well as her dear friend Florence K, with who she produced her first show at the Place des Arts, in 2005.<br>
-          <br>
-          Maïna is an artist capable of adapting her vocal cords to the Bizet arias as well as to the contemporary rhythms.<br>
-          <br>
-          Winner of the Superfantastico Italian contest at the Place des Arts in 2006, she starts writing original songs, collaborating with Mario Hart, Daniel Lavoie, Sophie Roy, Roger Tabra and many others...<br>
-          <br>
-          With a passion for children, she is currently touring with Natalie Choquette on her educational show “La Diva Malbouffa”. Together, they have performed over 200 shows across the province of Quebec, Ontario and the Maritimes.<br>
-          <br>
-          You can enjoy her very first single “Concerto pour une Voix” on iTunes, produced by Guy St-Onge. According him, she is one of the most beautiful voices of Quebec.
-        </p>
+        <h2>{{ __ 'Biography' }}</h2>
+        <p>{{{ __ 'complete-biography' }}}</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="photos">
+<section class="section" id="{{ __ 'photos' }}">
   <div class="container">
-    <h2>Photos</h2>
+    <h2>{{ __ 'Photos' }}</h2>
   </div>
 
   <carousel class="carousel">
     <div class="carousel__mask">
-      <button type="button" class="carousel__button carousel__button--next" id="next">Next</button>
-      <button type="button" class="carousel__button carousel__button--prev" id="prev">Previous</button>
+      <button
+        type="button"
+        class="carousel__button carousel__button--next"
+        id="next">
+        {{ __ 'Next' }}
+      </button>
+
+      <button
+        type="button"
+        class="carousel__button carousel__button--prev"
+        id="prev">
+        {{ __ 'Previous' }}
+      </button>
+
       <div class="carousel__drawer">
-        <img src="/images/maina-1.jpg" alt="Photoshoot" class="carousel__photo" ng-class="{ 'carousel__photo--is-visible': position === 0 }">
-        <img src="/images/maina-4.jpg" alt="Photoshoot" class="carousel__photo" ng-class="{ 'carousel__photo--is-visible': position === 1 }">
-        <img src="/images/maina-2.jpg" alt="Photoshoot" class="carousel__photo" ng-class="{ 'carousel__photo--is-visible': position === 2 }">
-        <img src="/images/maina-5.jpg" alt="Photoshoot" class="carousel__photo" ng-class="{ 'carousel__photo--is-visible': position === 3 }">
-        <img src="/images/maina-3.jpg" alt="Photoshoot" class="carousel__photo" ng-class="{ 'carousel__photo--is-visible': position === 4 }">
-        <img src="/images/maina-6.jpg" alt="Photoshoot" class="carousel__photo" ng-class="{ 'carousel__photo--is-visible': position === 5 }">
+        <img
+          src="/images/maina-1.jpg"
+          alt="Photoshoot"
+          class="carousel__photo"
+          ng-class="{ 'carousel__photo--is-visible': position === 0 }">
+
+        <img
+          src="/images/maina-4.jpg"
+          alt="Photoshoot"
+          class="carousel__photo"
+          ng-class="{ 'carousel__photo--is-visible': position === 1 }">
+
+        <img
+          src="/images/maina-2.jpg"
+          alt="Photoshoot"
+          class="carousel__photo"
+          ng-class="{ 'carousel__photo--is-visible': position === 2 }">
+
+        <img
+          src="/images/maina-5.jpg"
+          alt="Photoshoot"
+          class="carousel__photo"
+          ng-class="{ 'carousel__photo--is-visible': position === 3 }">
+
+        <img
+          src="/images/maina-3.jpg"
+          alt="Photoshoot"
+          class="carousel__photo"
+          ng-class="{ 'carousel__photo--is-visible': position === 4 }">
+
+        <img
+          src="/images/maina-6.jpg"
+          alt="Photoshoot"
+          class="carousel__photo"
+          ng-class="{ 'carousel__photo--is-visible': position === 5 }">
       </div>
     </div>
 
     <ul class="carousel__position">
-      <li ng-class="{ 'is-active': position === 0 }" ng-click="changePosition(0)"></li>
-      <li ng-class="{ 'is-active': position === 1 }" ng-click="changePosition(1)"></li>
-      <li ng-class="{ 'is-active': position === 2 }" ng-click="changePosition(2)"></li>
-      <li ng-class="{ 'is-active': position === 3 }" ng-click="changePosition(3)"></li>
-      <li ng-class="{ 'is-active': position === 4 }" ng-click="changePosition(4)"></li>
-      <li ng-class="{ 'is-active': position === 5 }" ng-click="changePosition(5)"></li>
+      <li
+        ng-class="{ 'is-active': position === 0 }"
+        ng-click="changePosition(0)">
+      </li>
+
+      <li
+        ng-class="{ 'is-active': position === 1 }"
+        ng-click="changePosition(1)">
+      </li>
+
+      <li
+        ng-class="{ 'is-active': position === 2 }"
+        ng-click="changePosition(2)">
+      </li>
+
+      <li
+        ng-class="{ 'is-active': position === 3 }"
+        ng-click="changePosition(3)">
+      </li>
+
+      <li
+        ng-class="{ 'is-active': position === 4 }"
+        ng-click="changePosition(4)">
+      </li>
+
+      <li
+        ng-class="{ 'is-active': position === 5 }"
+        ng-click="changePosition(5)">
+      </li>
     </ul>
   </carousel>
 </section>
 
-<section class="section section__purple section__pattern" id="videos">
+<section class="section section__purple section__pattern" id="{{ __ 'videos' }}">
   <div class="container">
-    <h2>Videos</h2>
+    <h2>{{ __ 'Videos' }}</h2>
 
     <ul class="video-list row">
       <li class="video-list__item col-sm-6">
         <div class="video-list__video">
           <iframe src="https://www.youtube.com/embed/-v8km6dtIVU" frameborder="0" allowfullscreen></iframe>
         </div>
-        <h3 class="video-list__title">Maïna Utzmann et Florence K au Banquier</h3>
-        <p class="video-list__description">Video description</p>
+        <h3 class="video-list__title">{{ __ 'mainaBanquierTitle' }}</h3>
+        <p class="video-list__description">Bla bla bla</p>
       </li>
 
       <li class="video-list__item col-sm-6">
         <div class="video-list__video">
           <iframe src="https://www.youtube.com/embed/bG6q_T2oI7g" frameborder="0" allowfullscreen></iframe>
         </div>
-        <h3 class="video-list__title">Torna A Surriento</h3>
+        <h3 class="video-list__title">{{ __ 'tornaSurriento' }}</h3>
         <p class="video-list__description">Superfantastico Place des Arts</p>
       </li>
     </ul>
@@ -144,18 +258,54 @@
         <p class="video-list__description">Video description</p>
       </li>
     </ul>
+
+    <ul class="video-list row">
+      <li class="video-list__item col-sm-6">
+        <div class="video-list__video">
+          <iframe src="https://player.vimeo.com/video/183204389" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+        <h3 class="video-list__title">Maina en Direct de l'Univers</h3>
+        <p class="video-list__description">En Direct de l'Univers de Mario Dumont avec France Beaudoin</p>
+      </li>
+
+      <li class="video-list__item col-sm-6">
+        <div class="video-list__video">
+          <iframe src="https://player.vimeo.com/video/183204833" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+        <h3 class="video-list__title">Pantoufle Magique</h3>
+        <p class="video-list__description">Bla bla bla</p>
+      </li>
+    </ul>
+
+    <ul class="video-list row">
+      <li class="video-list__item col-sm-6">
+        <div class="video-list__video">
+          <iframe src="https://player.vimeo.com/video/183204839" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+        <h3 class="video-list__title">Ford</h3>
+        <p class="video-list__description">Bla bla bla</p>
+      </li>
+
+      <li class="video-list__item col-sm-6">
+        <div class="video-list__video">
+          <iframe src="https://www.youtube.com/embed/oubJTLOap0A" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3 class="video-list__title">{{ __ 'actingDemoTitle' }}</h3>
+        <p class="video-list__description">Bla bla bla</p>
+      </li>
+    </ul>
   </div>
 </section>
 
-<section class="section section__light-gray" id="music">
+<section class="section section__light-gray" id="{{ __ 'music' }}">
   <div class="container">
-    <h2>Music</h2>
+    <h2>{{ __ 'Music' }}</h2>
 
     <div class="album">
       <img
         class="album__cover"
         src="/images/album.jpg"
-        alt="Concerto pour une voix album cover"
+        alt="{{ __ 'convertoPourUneVoixCover' }}"
         width="250"
         height="250">
 
@@ -171,16 +321,16 @@
   </div>
 </section>
 
-<section class="section section__teal section__pattern" id="contact" contact-form>
+<section class="section section__teal section__pattern" id="{{ __ 'contact' }}" contact-form>
   <div class="container">
-    <h2>Contact</h2>
+    <h2>{{ __ 'Contact' }}</h2>
 
     <div class="flash" ng-class="{
       'flash--error': $ctrl.formPostError,
       'flash--success': $ctrl.formPostSuccess,
     }">
-      <p ng-if="$ctrl.formPostError">An error occured when sending this message. Please try again.</p>
-      <p ng-if="$ctrl.formPostSuccess">Thanks for contacting me! Your message was successfully sent.</p>
+      <p ng-if="$ctrl.formPostError">{{ __ 'errorOccuredSendingMessage' }}</p>
+      <p ng-if="$ctrl.formPostSuccess">{{ __ 'thanksForContactingMe' }}</p>
     </div>
 
     <form
@@ -191,7 +341,7 @@
       <input type="hidden" name="" value="">
 
       <div class="col-sm-5 col-md-4">
-        <label for="full-name">Full name</label>
+        <label for="full-name">{{ __ 'fullName' }}</label>
         <input
           type="text"
           name="fullName"
@@ -200,10 +350,10 @@
           ng-model="$ctrl.formData.fullName">
 
         <ng-messages for="form.fullName.$error">
-          <ng-message when="required">This field is required.</ng-message>
+          <ng-message when="required">{{ __ 'requiredField' }}</ng-message>
         </ng-messages>
 
-        <label for="email">Email</label>
+        <label for="email">{{ __ 'email' }}</label>
         <input
           type="email"
           name="email"
@@ -212,12 +362,12 @@
           ng-model="$ctrl.formData.email">
 
         <ng-messages for="form.email.$error">
-          <ng-message when="required">This field is required.</ng-message>
-          <ng-message when="email">Please enter a valid email address.</ng-message>
+          <ng-message when="required">{{ __ 'requiredField' }}</ng-message>
+          <ng-message when="email">{{ __ 'pleaseEnterValidEmail' }}</ng-message>
         </ng-messages>
 
         <label for="phone-number">
-          Phone number <span>(optional)</span>
+          {{ __ 'phoneNumber' }} <span>({{ __ 'optional' }})</span>
         </label>
         <input
           type="text"
@@ -227,7 +377,7 @@
       </div>
 
       <div class="col-sm-7 col-md-8">
-        <label for="message">Message</label>
+        <label for="message">{{ __ 'message' }}</label>
         <textarea
           name="message"
           id="message"
@@ -237,12 +387,12 @@
         </textarea>
 
         <ng-messages for="form.message.$error">
-          <ng-message when="required">This field is required.</ng-message>
+          <ng-message when="required">{{ __ 'requiredField' }}</ng-message>
         </ng-messages>
       </div>
 
       <div class="col-xs-12 contact__btn">
-        <button type="submit" class="contact__send">Send</button>
+        <button type="submit" class="contact__send">{{ __ 'send' }}</button>
       </div>
     </form>
   </div>

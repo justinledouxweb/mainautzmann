@@ -9,7 +9,7 @@ function NavBarDirective($window) {
       const hero = angular.element('#hero');
       const heroHeight = hero.outerHeight();
       const navBar = elem.find('#nav-bar');
-      const links = elem.find('.nav-bar__item');
+      const links = elem.find('.nav-bar__item:not(.nav-bar__item--language)');
 
       fixeNavBar();
       activateLinks();
