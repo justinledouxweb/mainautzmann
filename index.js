@@ -1,7 +1,7 @@
 /* eslint no-param-reassign: 0 */
 'use strict';
 
-require('./newrelic.js');
+require('newrelic');
 
 const ENV = process.env.NODE_ENV;
 const express = require('express');
