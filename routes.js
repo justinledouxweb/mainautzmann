@@ -8,8 +8,7 @@ const i18n = require('i18n');
 
 module.exports = app => {
   app.get('/', (req, res) => {
-    console.log(res.cookie('i18n'));
-    console.log(i18n.getLocale() === 'fr' ? 'en' : 'fr');
+    res.locals.viewLocale = i18n.getLocale() === 'en' ? 'en_US' : 'fr_CA';
 
     res.render('home', {
       layout: 'main.handlebars',

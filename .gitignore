@@ -4,5 +4,6 @@
 .DS_Store
 
 npm-debug.log
+newrelic_agent.log
 
 public/

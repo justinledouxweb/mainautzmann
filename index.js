@@ -60,6 +60,7 @@ app.use(express.static(`${__dirname}/public/`, config.staticResourceCache));
 
 app.use((req, res, next) => {
   res.locals.isProduction = process.env.NODE_ENV === 'production';
+  res.locals.baseURL = config.baseURL;
   next();
 });
 

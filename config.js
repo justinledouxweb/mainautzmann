@@ -1,6 +1,6 @@
 module.exports = {
   local: {
-    baseURL: 'http://localhost:' + process.env.PORT + '/',
+    baseURL: `http://localhost:${process.env.PORT}/`,
     staticResourcesBaseURL: '/',
     staticResourceCache: { maxage: 0, etag: false },
   },
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   production: {
-    baseURL: 'https://mainautzmann.heroku.com/',
+    baseURL: 'http://www.mainautzmann.com/',
     staticResourcesBaseURL: '/',
     staticResourceCache: { maxage: 365 * 24 * 60 * 60 * 1000, etag: true },
   },
