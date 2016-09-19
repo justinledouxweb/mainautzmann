@@ -59,6 +59,14 @@ module.exports = app => {
               success: true,
               message: response,
             });
+        })
+        .catch((err) => {
+          console.error('Email error:', err);
+          res
+            .status(400)
+            .json({
+              error: 'email-client',
+            });
         });
       } else {
         res
@@ -83,8 +91,8 @@ function sendEmail(options) {
     const TRANSPORTER = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
+        user: process.env.JUSTIN_EMAIL_USER,
+        pass: process.env.JUSTIN_EMAIL_PASSWORD,
       },
     });
 
