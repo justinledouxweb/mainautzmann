@@ -44,8 +44,8 @@ module.exports = app => {
 
       if (hasValidFullName && hasValidEmail && hasValidMessage) {
         sendEmail({
-          from: `Maina Utzmann Website <${process.env.EMAIL_USER}>`,
-          to: `${req.body.fullName} <${req.body.email}>`,
+          from: `${req.body.fullName} <${req.body.email}>`,
+          to: `Maina Utzmann Website <${process.env.EMAIL_USER}>`,
           subject: 'New Contact',
           emailTemplate: {
             path: 'views/email-template/contact-email.handlebars',
