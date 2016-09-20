@@ -26,5 +26,6 @@
   "phoneNumber": "Numéro de téléphone",
   "optional": "optionnel",
   "message": "Message",
-  "send": "Envoyer"
+  "send": "Envoyer",
+  "gmAd": "Pub GM"
 }
