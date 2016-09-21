@@ -10,7 +10,7 @@
   "videos": "videos",
   "music": "musique",
   "contact": "contact",
-  "complete-biography": "Maïna chante!!!!!",
+  "complete-biography": "La chanteuse montréalaise Maïna entreprend ses études en musique sous la tutelle de Natalie Choquette, avec laquelle elle part en tournée en 98 en Hollande, Allemagne et Belgique.<br><br>Elle fait ses débuts dans le domaine de la musique de films en octobre 1999, en  enregistrant la trame de la série télévisée \"Diva\", sur une musique de Guy St-Onge.<br><br> Le talent de Maïna l'a amenée à partager la scène avec de merveilleux artistes et musiciens, dont I Musici de Montréal, Corneliu Montano, Meggie Lagacé, Ima, Marie-Ève Janvier, Jean-François Breau, Kim Richardson, Guy St-Onge, Eric Rock, ainsi que son amie Florence K, avec qui elle présente son premier spectacle « Autant en emporte le temps » à la Place des Arts, en 2005.<br><br>Elle est une artiste capable d'adapter indifféremment ses cordes vocales aux airs de Bizet et aux rythmes contemporains.<br><br>Grande gagnante du concours italien Superfantastico à la Place des Arts en 2006, elle se lance dans l'écriture de chansons originales, en collaboration avec Mario Hart, Daniel Lavoie, Sophie Roy, Roger Tabra et d'autres artistes...<br><br>Passionnée des enfants, elle est présentement en tournée avec Natalie Choquette dans le spectacle éducatif \"La Diva Malbouffa\". Elles viennent de donner plus de 200 spectacles à travers tout le Québec, l'Ontario et les Maritimes.<br><br>Vous pouvez entendre son tout premier Single \"Concerto pour une Voix\" sur Itunes, produit et réalisé par Guy St-Onge, qui parle d'elle comme étant une des plus belles voix du Québec...",
   "Next": "Suivant",
   "Previous": "Précédent",
   "mainaBanquierTitle": "Maïna Utzmann et Florence K au Banquier",
@@ -27,5 +27,11 @@
   "optional": "optionnel",
   "message": "Message",
   "send": "Envoyer",
-  "gmAd": "Pub GM"
+  "gmAd": "Pub GM",
+  "musicDescription": "Mon premier single est disponible sur iTunes, Google Play Music et Amazon. Produit par Guy St-Onge.",
+  "salleWilfridPelletier": "Salle Wildried Pelletier - Place des Arts",
+  "salleAstral": "Salle L'Astral",
+  "pubSacMagique": "Pub Sac Magique",
+  "mainaOnTvShowDirectUnivers": "Maïna à l'émission En Direct de l'Univers",
+  "demoActriceFrancais": "Démo d'actrice en francais"
 }
