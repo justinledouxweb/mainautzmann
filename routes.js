@@ -90,8 +90,8 @@ function sendEmail(options) {
     const TRANSPORTER = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: process.env.JUSTIN_EMAIL_USER,
-        pass: process.env.JUSTIN_EMAIL_PASSWORD,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD,
       },
     });
 
