@@ -1,6 +1,6 @@
 module.exports = {
   local: {
-    baseURL: `http://localhost:${process.env.PORT}/`,
+    baseURL: `http://localhost:${process.env.PORT || 3000}/`,
     staticResourcesBaseURL: '/',
     staticResourceCache: { maxage: 0, etag: false },
   },
