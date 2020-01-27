@@ -15,9 +15,10 @@ function CarouselDirective($window) {
 
       scope.position = position;
       scope.changePosition = changePosition;
-
+      
       window.on('resize', () => {
         pageWidth = mask.width();
+        moveDrawer(null, position);
       });
 
       nextBtn.on('click', moveDrawerNext);
@@ -58,6 +59,6 @@ function CarouselDirective($window) {
   };
 }
 
-CarouselDirective.$inject = [];
+CarouselDirective.$inject = ['$window'];
 
 export default CarouselDirective;
