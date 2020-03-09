@@ -56,7 +56,7 @@ app.use((req, res, next) => {
   }
 });
 app.use(compression());
-app.use(express.static(`${__dirname}/public/`, config.staticResourceCache));
+app.use(express.static(`${__dirname}/dist/`, config.staticResourceCache));
 
 app.use((req, res, next) => {
   res.locals.isProduction = process.env.NODE_ENV === 'production';

@@ -1,0 +1,101 @@
+<h2>{{ $ctrl.language.Contact }}</h2>
+
+<div
+  class="flash"
+  ng-class="{
+    'flash--error': $ctrl.formPostError,
+    'flash--success': $ctrl.formPostSuccess,
+  }">
+
+  <p ng-if="$ctrl.formPostError">
+    {{ $ctrl.language.errorOccuredSendingMessage }}
+  </p>
+
+  <p ng-if="$ctrl.formPostSuccess">
+    {{ $ctrl.language.thanksForContactingMe }}
+  </p>
+</div>
+
+<form
+  class="contact row"
+  name="form"
+  ng-submit="$ctrl.submit(form)"
+  novalidate>
+
+  <div class="col-sm-5 col-md-4">
+    <label for="full-name">
+      {{ $ctrl.language.fullName }}
+    </label>
+    <input
+      type="text"
+      name="fullName"
+      id="full-name"
+      required
+      ng-model="$ctrl.formData.fullName">
+
+    <ng-messages for="form.fullName.$error">
+      <ng-message when="required">
+        {{ $ctrl.language.requiredField }}
+      </ng-message>
+    </ng-messages>
+
+    <label for="email">
+      {{ $ctrl.language.email }}
+    </label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      required
+      ng-model="$ctrl.formData.email">
+
+    <ng-messages for="form.email.$error">
+      <ng-message when="required">
+        {{ $ctrl.language.requiredField }}
+      </ng-message>
+
+      <ng-message when="email">
+        {{ $ctrl.language.pleaseEnterValidEmail }}
+      </ng-message>
+    </ng-messages>
+
+    <label for="phone-number">
+      {{ $ctrl.language.phoneNumber }}
+      <span>({{ $ctrl.language.optional }})</span>
+    </label>
+    <input
+      type="text"
+      name="phone-number"
+      id="phone-number"
+      ng-model="$ctrl.formData.phoneNumber">
+  </div>
+
+  <div class="col-sm-7 col-md-8">
+    <label for="message">
+      {{ $ctrl.language.message }}
+    </label>
+    <textarea
+      name="message"
+      id="message"
+      class="contact__message"
+      required
+      ng-model="$ctrl.formData.message">
+    </textarea>
+
+    <ng-messages for="form.message.$error">
+      <ng-message when="required">
+        {{ $ctrl.language.requiredField }}
+      </ng-message>
+    </ng-messages>
+  </div>
+
+  <div class="col-sx-12" id="captcha"></div>
+
+  <div class="col-xs-12 contact__btn">
+    <button
+      type="submit"
+      class="contact__send">
+      {{ $ctrl.language.send }}
+    </button>
+  </div>
+</form>

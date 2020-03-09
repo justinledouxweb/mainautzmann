@@ -1,0 +1,49 @@
+<nav class="nav-bar" id="nav-bar">
+  <div class="container">
+    <a
+      href="#"
+      class="nav-bar__menu"
+      id="menu"
+      ng-click="$ctrl.toggleSideMenu($event)">
+      Menu
+    </a>
+
+    <a
+      ng-repeat="link in $ctrl.navLinks"
+      href="#{{ link.href }}"
+      class="nav-bar__item nav-bar__item--is-active">
+      {{ link.label }}
+    </a>
+  </div>
+</nav>
+
+<div class="nav-bar__side-container">
+  <nav
+    class="nav-bar nav-bar--side"
+    ng-class="{
+      'nav-bar--is-open': $ctrl.sideMenuIsOpen
+    }"
+    ng-click="$ctrl.toggleSideMenu()">
+
+    <a
+      ng-repeat="link in $ctrl.navLinks"
+      href="#{{ link.href }}"
+      class="nav-bar__item nav-bar__item--is-active">
+      {{ link.label }}
+    </a>
+
+    <a
+      href="/{{ language.link }}"
+      class="nav-bar__item nav-bar__item--language">
+      {{ language.label }}
+    </a>
+  </nav>
+</div>
+
+<div
+  class="curtain"
+  ng-class="{
+    'curtain--is-open': $ctrl.sideMenuIsOpen
+  }"
+  ng-click="$ctrl.toggleSideMenu()">
+</div>

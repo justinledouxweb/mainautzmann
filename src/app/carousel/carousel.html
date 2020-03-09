@@ -1,0 +1,38 @@
+<div class="carousel">
+    <div class="carousel__mask">
+        <button
+          type="button"
+          class="carousel__button carousel__button--next"
+          id="next"
+          ng-click="$ctrl.moveDrawerNext()">
+          {{ $ctrl.next }}
+        </button>
+  
+        <button
+          type="button"
+          class="carousel__button carousel__button--prev"
+          id="prev"
+          ng-click="$ctrl.moveDrawerPrev()">
+          {{ $ctrl.previous }}
+        </button>
+  
+        <div class="carousel__drawer">
+          <img
+            ng-repeat="image in $ctrl.images"
+            src="{{ image.src }}"
+            alt="Photoshoot"
+            class="carousel__photo"
+            ng-class="{
+              'carousel__photo--is-visible': $ctrl.position === $index
+            }">
+        </div>
+      </div>
+  
+      <ul class="carousel__position">
+        <li
+          ng-repeat="image in $ctrl.images"
+          ng-class="{ 'is-active': $ctrl.position === $index }"
+          ng-click="$ctrl.changePosition($index)">
+        </li>
+      </ul>
+</div>

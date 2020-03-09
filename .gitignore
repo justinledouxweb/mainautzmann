@@ -7,3 +7,4 @@ npm-debug.log
 newrelic_agent.log
 
 public/
+dist/

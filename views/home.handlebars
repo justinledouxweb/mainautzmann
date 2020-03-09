@@ -11,108 +11,20 @@
   </div>
 </header>
 
-<div nav-bar>
-  <nav class="nav-bar" id="nav-bar">
-    <div class="container">
-      <a
-        href="#"
-        class="nav-bar__menu"
-        id="menu"
-        ng-click="$ctrl.toggleSideMenu($event)">
-        Menu
-      </a>
-
-      <a
-        href="#{{ __ 'biography' }}"
-        class="nav-bar__item nav-bar__item--is-active">
-        {{ __ 'Biography' }}
-      </a>
-
-      <a
-        href="#{{ __ 'photos' }}"
-        class="nav-bar__item">
-        {{ __ 'Photos' }}
-      </a>
-
-      <a
-        href="#{{ __ 'videos' }}"
-        class="nav-bar__item">
-        {{ __ 'Videos' }}
-      </a>
-
-      <a
-        href="#{{ __ 'music' }}"
-        class="nav-bar__item">
-        {{ __ 'Music' }}
-      </a>
-
-      <a
-        href="#{{ __ 'contact' }}"
-        class="nav-bar__item">
-        {{ __ 'Contact' }}
-      </a>
-
-      <a
-        href="/{{ language.link }}"
-        class="nav-bar__item nav-bar__item--language">
-        {{ language.label }}
-      </a>
-    </div>
-  </nav>
-
-  <div class="nav-bar__side-container">
-    <nav
-      class="nav-bar nav-bar--side"
-      ng-class="{
-        'nav-bar--is-open': $ctrl.sideMenuIsOpen
-      }"
-      ng-click="$ctrl.toggleSideMenu()">
-      <a
-        href="#{{ __ 'biography' }}"
-        class="nav-bar__item nav-bar__item--is-active">
-        {{ __ 'Biography' }}
-      </a>
-
-      <a
-        href="#{{ __ 'photos' }}"
-        class="nav-bar__item">
-        {{ __ 'Photos' }}
-      </a>
-
-      <a
-        href="#{{ __ 'videos' }}"
-        class="nav-bar__item">
-        {{ __ 'Videos' }}
-      </a>
-
-      <a
-        href="#{{ __ 'music' }}"
-        class="nav-bar__item">
-        {{ __ 'Music' }}
-      </a>
-
-      <a
-        href="#{{ __ 'contact' }}"
-        class="nav-bar__item">
-        {{ __ 'Contact' }}
-      </a>
-
-      <a
-        href="/{{ language.link }}"
-        class="nav-bar__item nav-bar__item--language">
-        {{ language.label }}
-      </a>
-    </nav>
-  </div>
-
-  <div
-    class="curtain"
-    ng-class="{
-      'curtain--is-open': $ctrl.sideMenuIsOpen
-    }"
-    ng-click="$ctrl.toggleSideMenu()">
-  </div>
-</div>
+<nav-bar
+  language="{
+    biography: '{{ __ 'biography' }}',
+    Biography: '{{ __ 'Biography' }}',
+    photos: '{{ __ 'photos' }}',
+    Photos: '{{ __ 'Photos' }}',
+    videos: '{{ __ 'videos' }}',
+    Videos: '{{ __ 'Videos' }}',
+    music: '{{ __ 'music' }}',
+    Music: '{{ __ 'Music' }}',
+    contact: '{{ __ 'contact' }}',
+    Contact: '{{ __ 'Contact' }}',
+  }">
+</nav-bar>
 
 <section class="section section__blue section__pattern" id="{{ __ 'biography' }}">
   <div class="container">
@@ -130,92 +42,9 @@
     <h2>{{ __ 'Photos' }}</h2>
   </div>
 
-  <carousel class="carousel">
-    <div class="carousel__mask">
-      <button
-        type="button"
-        class="carousel__button carousel__button--next"
-        id="next">
-        {{ __ 'Next' }}
-      </button>
-
-      <button
-        type="button"
-        class="carousel__button carousel__button--prev"
-        id="prev">
-        {{ __ 'Previous' }}
-      </button>
-
-      <div class="carousel__drawer">
-        <img
-          src="/images/maina-1.jpg"
-          alt="Photoshoot"
-          class="carousel__photo"
-          ng-class="{ 'carousel__photo--is-visible': position === 0 }">
-
-        <img
-          src="/images/maina-4.jpg"
-          alt="Photoshoot"
-          class="carousel__photo"
-          ng-class="{ 'carousel__photo--is-visible': position === 1 }">
-
-        <img
-          src="/images/maina-2.jpg"
-          alt="Photoshoot"
-          class="carousel__photo"
-          ng-class="{ 'carousel__photo--is-visible': position === 2 }">
-
-        <img
-          src="/images/maina-5.jpg"
-          alt="Photoshoot"
-          class="carousel__photo"
-          ng-class="{ 'carousel__photo--is-visible': position === 3 }">
-
-        <img
-          src="/images/maina-3.jpg"
-          alt="Photoshoot"
-          class="carousel__photo"
-          ng-class="{ 'carousel__photo--is-visible': position === 4 }">
-
-        <img
-          src="/images/maina-6.jpg"
-          alt="Photoshoot"
-          class="carousel__photo"
-          ng-class="{ 'carousel__photo--is-visible': position === 5 }">
-      </div>
-    </div>
-
-    <ul class="carousel__position">
-      <li
-        ng-class="{ 'is-active': position === 0 }"
-        ng-click="changePosition(0)">
-      </li>
-
-      <li
-        ng-class="{ 'is-active': position === 1 }"
-        ng-click="changePosition(1)">
-      </li>
-
-      <li
-        ng-class="{ 'is-active': position === 2 }"
-        ng-click="changePosition(2)">
-      </li>
-
-      <li
-        ng-class="{ 'is-active': position === 3 }"
-        ng-click="changePosition(3)">
-      </li>
-
-      <li
-        ng-class="{ 'is-active': position === 4 }"
-        ng-click="changePosition(4)">
-      </li>
-
-      <li
-        ng-class="{ 'is-active': position === 5 }"
-        ng-click="changePosition(5)">
-      </li>
-    </ul>
+  <carousel
+    next="{{ __ 'Next' }}"
+    previous="{{ __ 'Previous' }}">
   </carousel>
 </section>
 
@@ -231,16 +60,6 @@
         <h3 class="video-list__title">{{ __ 'mainaBanquierTitle' }}</h3>
       </li>
 
-      {{!-- <li class="video-list__item col-sm-6">
-        <div class="video-list__video">
-          <iframe src="https://www.youtube.com/embed/bG6q_T2oI7g" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <h3 class="video-list__title">{{ __ 'tornaSurriento' }}</h3>
-        <p class="video-list__description">Superfantastico Place des Arts</p>
-      </li>
-    </ul>
-
-    <ul class="video-list row"> --}}
       <li class="video-list__item col-sm-6">
         <div class="video-list__video">
           <iframe src="https://www.youtube.com/embed/AuLIshV8f44" frameborder="0" allowfullscreen></iframe>
@@ -258,9 +77,7 @@
         <h3 class="video-list__title">Vitrine 2013 des musiques locales métissées</h3>
         <p class="video-list__description">{{ __ 'salleAstral' }}</p>
       </li>
-    {{!-- </ul>
 
-    <ul class="video-list row"> --}}
       <li class="video-list__item col-sm-6">
         <div class="video-list__video">
           <iframe src="https://player.vimeo.com/video/183204389" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -276,9 +93,7 @@
         </div>
         <h3 class="video-list__title">{{ __ 'pubSacMagique' }}</h3>
       </li>
-    {{!-- </ul>
 
-    <ul class="video-list row"> --}}
       <li class="video-list__item col-sm-6">
         <div class="video-list__video">
           <iframe src="https://player.vimeo.com/video/183204839" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -295,9 +110,7 @@
         <h3 class="video-list__title">{{ __ 'actingDemoTitle' }}</h3>
         <p class="video-list__description">{{ __ 'demoActriceFrancais' }}</p>
       </li>
-    {{!-- </ul>
 
-    <ul class="video-list row"> --}}
       <li class="video-list__item col-sm-6">
         <div class="video-list__video">
           <iframe src="https://www.youtube.com/embed/GIujzKpLPSU" frameborder="0" allowfullscreen></iframe>
@@ -335,78 +148,23 @@
 
 <section class="section section__teal section__pattern" id="{{ __ 'contact' }}" contact-form>
   <div class="container">
-    <h2>{{ __ 'Contact' }}</h2>
-
-    <div class="flash" ng-class="{
-      'flash--error': $ctrl.formPostError,
-      'flash--success': $ctrl.formPostSuccess,
-    }">
-      <p ng-if="$ctrl.formPostError">{{ __ 'errorOccuredSendingMessage' }}</p>
-      <p ng-if="$ctrl.formPostSuccess">{{ __ 'thanksForContactingMe' }}</p>
-    </div>
-
-    <form
-      class="contact row"
-      name="form"
-      ng-submit="$ctrl.submit(form)"
-      novalidate>
-      <input type="hidden" name="" value="">
-
-      <div class="col-sm-5 col-md-4">
-        <label for="full-name">{{ __ 'fullName' }}</label>
-        <input
-          type="text"
-          name="fullName"
-          id="full-name"
-          required
-          ng-model="$ctrl.formData.fullName">
-
-        <ng-messages for="form.fullName.$error">
-          <ng-message when="required">{{ __ 'requiredField' }}</ng-message>
-        </ng-messages>
-
-        <label for="email">{{ __ 'email' }}</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          required
-          ng-model="$ctrl.formData.email">
-
-        <ng-messages for="form.email.$error">
-          <ng-message when="required">{{ __ 'requiredField' }}</ng-message>
-          <ng-message when="email">{{ __ 'pleaseEnterValidEmail' }}</ng-message>
-        </ng-messages>
-
-        <label for="phone-number">
-          {{ __ 'phoneNumber' }} <span>({{ __ 'optional' }})</span>
-        </label>
-        <input
-          type="text"
-          name="phone-number"
-          id="phone-number"
-          ng-model="$ctrl.formData.phoneNumber">
-      </div>
-
-      <div class="col-sm-7 col-md-8">
-        <label for="message">{{ __ 'message' }}</label>
-        <textarea
-          name="message"
-          id="message"
-          class="contact__message"
-          required
-          ng-model="$ctrl.formData.message">
-        </textarea>
-
-        <ng-messages for="form.message.$error">
-          <ng-message when="required">{{ __ 'requiredField' }}</ng-message>
-        </ng-messages>
-      </div>
-
-      <div class="col-xs-12 contact__btn">
-        <button type="submit" class="contact__send">{{ __ 'send' }}</button>
-      </div>
-    </form>
+    <contact-form
+      language="{
+        Contact: '{{ __ 'Contact' }}',
+        errorOccuredSendingMessage: '{{ __ 'errorOccuredSendingMessage' }}',
+        thanksForContactingMe: '{{ __ 'thanksForContactingMe' }}',
+        fullName: '{{ __ 'fullName' }}',
+        requiredField: '{{ __ 'requiredField' }}',
+        email: '{{ __ 'email' }}',
+        requiredField: '{{ __ 'requiredField' }}',
+        pleaseEnterValidEmail: '{{ __ 'pleaseEnterValidEmail' }}',
+        phoneNumber: '{{ __ 'phoneNumber' }}',
+        optional: '{{ __ 'optional' }}',
+        message: '{{ __ 'message' }}',
+        requiredField: '{{ __ 'requiredField' }}',
+        send: '{{ __ 'send' }}',
+      }">
+    </contact-form>
   </div>
 </section>
 

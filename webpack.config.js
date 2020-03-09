@@ -16,46 +16,59 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 //   }
 // };
 // const config = require('./client/config');
+const BUILD_TYPE = process.env.NODE_ENV || 'production';
 
 module.exports = {
-  mode: 'production',
+  mode: BUILD_TYPE,
 
-//   devtool: 'source-map',
+  devtool: 'source-map',
 
-  entry: './src/app/app.js',
+  entry: './src/app/app.ts',
 
   output: {
     filename: path.join('.', '/js', '/app.js'),
-    path: path.resolve('./public'),
+    path: path.resolve('./dist'),
   },
 
-//   optimization: {
-//     splitChunks: {
-//       cacheGroups: {
-//         commons: {
-//           test: /node_modules/,
-//           name: 'vendors',
-//           chunks: 'all',
-//         },
-//       },
-//     },
-//   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /node_modules/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
 
   resolve: {
-    extensions: ['.js', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.json'],
   },
 
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.ts$/,
+        use: [
+          {
+            loader: 'ng-annotate-loader',
+          },
+          {
+            loader: 'ts-loader',
+          },
+        ],
         exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env']
-            }
-        }
+      },
+
+      {
+        test: /\.ts$/,
+        enforce: 'pre',
+        loader: 'tslint-loader',
+        options: {
+          configFile: './tslint.json',
+        },
+        exclude: /node_modules/,
       },
 
       {

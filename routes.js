@@ -1,10 +1,9 @@
-'use strict';
-
 const handlebars = require('express-handlebars');
 const handlebarsConfig = require('./handlebars-config.js');
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 const i18n = require('i18n');
+const axios = require('axios').default;
 
 module.exports = app => {
   app.get('/', (req, res) => {
@@ -41,30 +40,56 @@ module.exports = app => {
 
       req.body.message = req.body.message.replace('/(?:\r\n|\r|\n)/g', '<br>');
 
+      console.log(process.env.CAPTCHA_SECRET);
+      console.log(req.body.captcha);
+      
       if (hasValidFullName && hasValidEmail && hasValidMessage) {
-        sendEmail({
-          from: `${req.body.fullName} <${req.body.email}>`,
-          to: 'Maïna Utzmann Website <maina_utzmann@yahoo.com>',
-          subject: 'New Contact',
-          emailTemplate: {
-            path: 'views/email-template/contact-email.handlebars',
-            data: req.body,
-          },
+        axios({
+          method: 'post',
+          url: `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.CAPTCHA_SECRET}&response=${req.body.captcha}`,
         })
-        .then((response) => {
-          res
-            .status(200)
-            .json({
-              success: true,
-              message: response,
+        .then((response) => {
+          if (response.data.success) {
+            sendEmail({
+              from: `${req.body.fullName} <${req.body.email}>`,
+              // to: 'Maïna Utzmann Website <maina_utzmann@yahoo.com>',
+              to: 'Maïna Utzmann Website <justin.ledoux@quickseries.com>',
+              subject: 'New Contact',
+              emailTemplate: {
+                path: 'views/email-template/contact-email.handlebars',
+                data: req.body,
+              },
+            })
+            .then((response) => {
+              res
+                .status(200)
+                .json({
+                  success: true,
+                  message: response,
+                });
+            })
+            .catch((err) => {
+              res
+                .status(400)
+                .json({
+                  error: 'email-client',
+                });
             });
-        })
-        .catch((err) => {
-          console.error('Email error:', err);
+
+            return;
+          }
+
           res
             .status(400)
             .json({
-              error: 'email-client',
+              error: 'robot',
+            });
+        })
+        .catch((error) => {
+          res
+            .status(400)
+            .json({
+              error: 'robot',
             });
         });
       } else {
@@ -104,6 +129,8 @@ function sendEmail(options) {
         
         template = hdb.handlebars.compile(data);
         template = template(options.emailTemplate.data);
+
+        console.log(options.from);
 
         const mailOptions = {
           from: options.from,
