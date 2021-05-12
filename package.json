@@ -76,7 +76,7 @@
     "moment": "2.24.0",
     "newrelic": "6.2.0",
     "ng-annotate-loader": "^0.6.1",
-    "nodemailer": "6.4.2",
+    "nodemailer": "6.4.16",
     "path": "^0.12.7",
     "postcss-loader": "^3.0.0",
     "run-sequence": "2.2.1",
